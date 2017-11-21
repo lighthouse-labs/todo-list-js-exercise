@@ -9,3 +9,8 @@ function newTask(title) {
   taskComplete.push(false);
 }
 
+// Mark a task as complete by setting the task's status in the `taskComplete` array to `true`
+function completeTask(taskIndex) {
+  taskComplete[taskIndex] = true;
+}
+
