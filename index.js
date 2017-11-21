@@ -14,3 +14,10 @@ function completeTask(taskIndex) {
   taskComplete[taskIndex] = true;
 }
 
+// Print the state of a task to the console in a nice readable way
+function logTaskState(taskIndex) {
+  const title = taskTitles[taskIndex];
+  const complete = taskComplete[taskIndex];
+  console.log(`${title} has${complete? " " : " not "}been completed`);
+}
+
