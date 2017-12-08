@@ -1,6 +1,6 @@
 // Arrays to keep track of each task's state
-var taskTitles = [];
-var taskComplete = []; 
+const taskTitles = [];
+const taskComplete = [];
 
 // Create a new task by adding to the arrays
 // A new task will be created as incomplete
@@ -18,7 +18,7 @@ function completeTask(taskIndex) {
 function logTaskState(taskIndex) {
   const title = taskTitles[taskIndex];
   const complete = taskComplete[taskIndex];
-  console.log(`${title} has${complete? " " : " not "}been completed`);
+  console.log(`${title} has${complete ? " " : " not "}been completed`);
 }
 
 newTask("Clean Cat Litter"); // task 0
