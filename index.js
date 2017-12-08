@@ -21,6 +21,8 @@ function logTaskState(taskIndex) {
   console.log(`${title} has${complete ? " " : " not "}been completed`);
 }
 
+// DRIVER CODE BELOW
+
 newTask("Clean Cat Litter"); // task 0
 newTask("Do Laundry"); // task 1
 
