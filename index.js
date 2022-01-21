@@ -1,5 +1,5 @@
 /* eslint-disable func-style */
-// Arrays to keep track of each task's state
+// Arrays to keep track of each task's state hshs
 const taskTitles = [];
 const taskComplete = [];
 
@@ -21,6 +21,7 @@ function newTask(title, description) {
   return task;
 }
 
+//
 // DRIVER CODE BELOW
 
 const task1 = newTask("Clean Cat Litter","Take all the 💩 out of the litter box");
