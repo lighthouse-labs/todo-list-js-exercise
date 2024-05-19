@@ -14,6 +14,7 @@ function completeTask(taskIndex) {
   taskComplete[taskIndex] = true;
 }
 
+console.log("changes made")
 // Print the state of a task to the console in a nice readable way
 function logTaskState(taskIndex) {
   const title = taskTitles[taskIndex];
