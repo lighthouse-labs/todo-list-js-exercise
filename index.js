@@ -1,31 +1,76 @@
-// Arrays to keep track of each task's state
-const taskTitles = [];
-const taskComplete = [];
 
-// Create a new task by adding to the arrays
-// A new task will be created as incomplete
-function newTask(title) {
-  taskTitles.push(title);
-  taskComplete.push(false);
+// why is this better.
+// Encapsulation – Each task is an object with properties.
+//  Methods –  Encapsulated functions inside each task object for better structure.
+//  Task List Object –  Manages tasks efficiently.
+//  List All Tasks –  Easily display all tasks at once.
+
+
+
+
+
+
+
+
+// Task Factory Function
+
+
+
+
+function createTask(title) {
+  return {
+    title: title,
+    complete: false,
+    
+    // Method to mark task as complete
+    completeTask() {
+      this.complete = true;
+    },
+    
+    // Method to log task state
+    logState() {
+      console.log(`${this.title} has${this.complete ? " " : " not "}been completed`);
+    }
+  };
 }
 
-// Mark a task as complete by setting the task's status in the `taskComplete` array to `true`
-function completeTask(taskIndex) {
-  taskComplete[taskIndex] = true;
-}
+// Task List Manager
+const taskManager = {
+  tasks: [],
 
-// Print the state of a task to the console in a nice readable way
-function logTaskState(taskIndex) {
-  const title = taskTitles[taskIndex];
-  const complete = taskComplete[taskIndex];
-  console.log(`${title} has${complete ? " " : " not "}been completed`);
-}
+  // Add a new task
+  addTask(title) {
+    const task = createTask(title);
+    this.tasks.push(task);
+  },
 
-// DRIVER CODE BELOW
+  // Mark task as complete by index
+  completeTask(index) {
+    if (this.tasks[index]) {
+      this.tasks[index].completeTask();
+    }
+  },
 
-newTask("Clean Cat Litter"); // task 0
-newTask("Do Laundry"); // task 1
+  // Log a specific task's state
+  logTaskState(index) {
+    if (this.tasks[index]) {
+      this.tasks[index].logState();
+    }
+  },
 
-logTaskState(0); // Clean Cat Litter has not been completed
-completeTask(0);
-logTaskState(0); // Clean Cat Litter has been completed
+  // List all tasks
+  listAllTasks() {
+    this.tasks.forEach(task => task.logState());
+  }
+};
+
+
+
+taskManager.addTask("Clean Cat Litter");
+taskManager.addTask("Do Laundry");
+
+taskManager.logTaskState(0); // Clean Cat Litter has not been completed
+taskManager.completeTask(0);
+taskManager.logTaskState(0); // Clean Cat Litter has been completed
+
+taskManager.listAllTasks(); // Logs all tasks
